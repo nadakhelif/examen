@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello PfeController!{% endblock %}
+
+{% block body %}
+{% for pfe in pfes %}
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h5 class="card-title">{{pfe.student}} </h5>
+    <p class="card-text">{{pfe.titre}} </p>
+    
+  </div>
+</div>
+{% endblock %}
