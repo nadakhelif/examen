@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Entreprise;
 use App\Entity\PFE;
 use App\Form\PfeType;
 use Doctrine\Persistence\ManagerRegistry;
@@ -31,23 +32,11 @@ class PfeController extends AbstractController
             ]);
         }
         return $this->render('pfe/index.html.twig', [
-            'controller_name' => 'PfeController',
+            'pfe' => $pfe,
         ]);
     }
     
 
-    #[Route('/affiche', name: 'app_affiche')]
-    public function selectbyentreprise(ManagerRegistry $doctrine,): Response
-    {
-    $repo = $doctrine->getRepository(Entreprise::class);
-    $entreprises = $repo->findBy();
-    $array = [];
-        foreach ($entreprises as $entreprise) {
-
-    }
-        return $this->render('pfe/index.html.twig', [
-            'controller_name' => 'AfficheController',
-        ]);
-    }
+    
 }
 

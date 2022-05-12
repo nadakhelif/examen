@@ -1,15 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}Hello PfeController!{% endblock %}
-
+{% block h1 %}
+  <h1>le pfe qui vient d'etre ajouter </h1>
+{% endblock %}
 {% block body %}
-{% for pfe in pfes %}
+
 <div class="card" style="width: 18rem;">
   
   <div class="card-body">
     <h5 class="card-title">{{pfe.student}} </h5>
     <p class="card-text">{{pfe.titre}} </p>
+    <p class="card-text">{{pfe.entreprise}} </p>
     
   </div>
 </div>
+{# {% endfor %} #}
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Entreprise stat{% endblock %}
+{% block h1 %}
+  <h1>Nbre de pfe par entreprise </h1>
+{% endblock %}
+{% block body %}
+    <div class="row">
+    {% for entreprise in PFEparEntreprise %}
+        <div class=" card p-3 mb-2 {%if(loop.index is odd)%}bg-primary text-white{% else %}bg-info text-white{% endif %}" style="max-width: 18rem;margin: 15px;">
+            <div class="card-header">{{ entreprise['name'] }}</div>
+            <div class="card-body">
+                <h5 class="card-title"> nbre de pfe {{ entreprise[1] }} </h5>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

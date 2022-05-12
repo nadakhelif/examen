@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Entreprise;
 
 /**
  * @extends ServiceEntityRepository<PFE>
@@ -45,6 +46,21 @@ class PFERepository extends ServiceEntityRepository
         if ($flush) {
             $this->_em->flush();
         }
+    }
+     // /**
+    //  * @return PFE[] Returns an array of PFE objects
+    //  */
+
+    public function nbrPFEparEntreprise()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p.entreprise)','e.name')
+            ->from('App:Entreprise','e')
+            ->andWhere('p.entreprise= e.id')
+            ->groupBy('p.entreprise')
+            ->getQuery()
+            ->getResult()
+        ;
     }
 
 //    /**
